@@ -1,0 +1,111 @@
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:lucide_icons/lucide_icons.dart';
+import 'package:trust_task/core/global/widgets/custom_loading_button.dart';
+import 'package:trust_task/core/theme/app_color.dart';
+import 'package:trust_task/core/theme/text_style.dart';
+import 'package:trust_task/core/utils/font_manager.dart';
+
+class PleaseLoginWidget extends StatelessWidget {
+  const PleaseLoginWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        alignment: AlignmentDirectional.center,
+        padding: EdgeInsets.only(bottom: MediaQuery.paddingOf(context).top * 2),
+        child: SizedBox(
+          width: context.isTablet ? 0.75.sw : 1.sw,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Card(
+                elevation: 6,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                margin: const EdgeInsets.symmetric(horizontal: 24),
+                child: Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Column(
+                    children: [
+                      Icon(
+                        LucideIcons.userX,
+                        size: context.isTablet ? 40.h : 35.h,
+                        color: Colors.grey[700],
+                      ),
+                      SizedBox(height: 16.h),
+                      Text(
+                        "You're not logged in".tr,
+                        style: getSemiBoldStyle(context),
+                      ),
+                      SizedBox(height: 5.h),
+                      Text(
+                        "Please log in to access this feature.".tr,
+                        style: getRegularStyle(
+                          context,
+                        ).copyWith(color: greyColor),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: 24.h),
+                      CustomLoadingButton(
+                        text: "Login".tr,
+                        onPressed: () {
+                          // Get.toNamed(AppRoutes.login);
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomLoginItemWidget extends StatelessWidget {
+  const CustomLoginItemWidget({
+    super.key,
+    this.onTap,
+    required this.icon,
+    required this.title,
+  });
+  final Function()? onTap;
+  final IconData icon;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: InkWell(
+        onTap: onTap,
+        child: Row(
+          children: [
+            CircleAvatar(
+              radius: 20.r,
+              backgroundColor: borderColor.withAlpha(30),
+              child: Icon(icon, color: AppColors.primaryColor, size: 20.r),
+            ),
+            Gap(10.w),
+            Text(
+              title,
+              style: getMediumStyle(
+                context,
+              ).copyWith(fontWeight: FontManager.boldFontWeight),
+            ),
+            Spacer(),
+            Icon(Icons.arrow_forward_ios_rounded, size: 15.r),
+          ],
+        ),
+      ),
+    );
+  }
+}

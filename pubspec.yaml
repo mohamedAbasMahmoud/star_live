@@ -1,0 +1,48 @@
+name: trust_task
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.1
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  dio: ^5.4.0
+  easy_localization: ^3.0.3
+  equatable: ^2.0.8
+  flutter_bloc: ^9.1.1
+  flutter_screenutil: ^5.9.3
+  gap: ^3.0.1
+  get: ^4.7.3
+  get_it: ^7.6.0
+  url_launcher: ^6.3.2
+  animated_text_kit: ^4.2.2
+  cached_network_image: ^3.3.1
+  lottie: ^3.1.0
+  easy_loading_button: ^0.3.2
+  lucide_icons: ^0.257.0
+  #file_picker: ^6.1.1
+  pretty_dio_logger: ^1.4.0
+  dartz: ^0.10.1
+  timeago: ^3.2.0
+  awesome_notifications: ^0.10.1
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/lottie/
+    
+    # لو عندك ترجمات مثلاً:
+    # - assets/translations/
